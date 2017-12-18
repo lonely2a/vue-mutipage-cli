@@ -7,10 +7,6 @@ import axios from 'axios'
  * params
  */
 export default function get (url, params) {
-  return axios.get(url, {
-    params: {
-      // ...params,
-      timeStamp: Date.now()
-    }
-  })
+  params.timeStamp = Date.now()
+  return axios.get(url, params)
 }

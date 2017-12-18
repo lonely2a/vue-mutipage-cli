@@ -60,9 +60,9 @@ export default {
   },
   mounted () {
     axios.get('/mockjsdata/14621/api/comments')
-    .then(res => {
-      console.log(res);
-    })
+    // .then(res => {
+    //   console.log(res);
+    // })
     // getTestData()
     // .then (res => {
     //   console.log(res);
