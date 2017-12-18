@@ -42,6 +42,10 @@
 
 </style>
 <script>
+import {
+  getTestData
+} from './apis'
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -53,6 +57,16 @@ export default {
   },
   created () {
 
+  },
+  mounted () {
+    axios.get('/mockjsdata/14621/api/comments')
+    .then(res => {
+      console.log(res);
+    })
+    // getTestData()
+    // .then (res => {
+    //   console.log(res);
+    // })
   },
   methods: {
 

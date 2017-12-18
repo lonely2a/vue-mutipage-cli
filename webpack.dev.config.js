@@ -14,6 +14,15 @@ var webpackConfig = {
       filename: 'js/[name].js',
       path: path.resolve(__dirname, './dist'),
     },
+    // devServer: {
+    //   proxy: {
+    //     '/mockjsdata/*': {
+    //       target: 'http://rap.taobao.org',
+    //       changeOrigin: true,
+    //       secure: false
+    //     }
+    //   }
+    // },
     plugins: [
       extractCSS,
       new webpack.LoaderOptionsPlugin({
