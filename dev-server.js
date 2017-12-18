@@ -1,7 +1,7 @@
 // dev-server.js
 var express = require('express')
 var webpack = require('webpack')
-var webpackConfig = require('./webpack.config')
+var webpackConfig = require('./webpack.dev.config')
 var path = require('path')
 var app = express();
 
@@ -16,7 +16,6 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
         chunks: false
     }
 });
-
 app.use(devMiddleware)
 
 // 路由
@@ -48,3 +47,4 @@ module.exports = app.listen(8080, function(err) {
 
     console.log('Listening at http://localhost:' + 8080 + '\n')
 })
+webpack(webpackConfig)
