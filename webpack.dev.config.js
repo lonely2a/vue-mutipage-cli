@@ -7,7 +7,9 @@ var extractCSS = new ExtractTextPlugin('css/[name].css')
 var path = require('path')
 var webpackConfig = {
     /* 一些webpack基础配置 */
-    entry: {},
+    entry: {
+
+    },
     output: {
       filename: 'js/[name].js',
       path: path.resolve(__dirname, './dist'),
@@ -32,7 +34,8 @@ var webpackConfig = {
             }
          }
         }
-      })
+      }),
+       new webpack.HotModuleReplacementPlugin()
     ],
     module: {
       rules: [
@@ -96,8 +99,11 @@ function getEntries(globPath) {
 var entries = getEntries('src/views/**/index.js');
 // var entries = ['src/views/**/index.js'];
 Object.keys(entries).forEach(function(name) {
+    var arrPath = []
+    arrPath.push('webpack-hot-middleware/client')
+    arrPath.push(entries[name])
     // 每个页面生成一个entry，如果需要HotUpdate，在这里修改entry
-    webpackConfig.entry[name] = entries[name];
+    webpackConfig.entry[name] = arrPath;
 
     // 每个页面生成一个html
     var plugin = new HtmlWebpackPlugin({
@@ -112,4 +118,5 @@ Object.keys(entries).forEach(function(name) {
     });
     webpackConfig.plugins.push(plugin);
 })
+console.log(webpackConfig.entry);
 module.exports = webpackConfig

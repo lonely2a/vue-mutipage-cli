@@ -1,23 +1,51 @@
 <template>
   <div class="home">
-    <div class="home_welcome">
-      <p>{{welcome}}</p>
-      <img class="welcome_pic" src="./assets/images/pic.png" alt="">
+    <div class="media">
+      <div class="media__body">
+        <h3 class="alpha">welcome to use me!</h3>
+        <p class="lede">This cli is the best,seriously!</p>
+      </div>
+      <div class="media__img media__img--large">
+        <img src="./assets/images/hi.png">
+      </div>
     </div>
   </div>
 </template>
 <style lang="less" rel='stylesheet/less'>
 @import '../../assets/css/reset.css';
-.welcome_pic{
-  width: 500px;
-  height: 400px;
+.media{
+  .media__body{
+    .alpha{
+      margin: 150px 0 30px 0;
+      font-size: 48px;
+      font-weight: 400;
+    }
+    .alpha, .lede {
+      font-size: 28px;
+      text-align: center;
+    }
+    overflow: hidden;
+  }
+  .media__img {
+    margin: 20px auto;
+    width: 400px;
+    height: 300px;
+    img{
+      width: 100%;
+    }
+  }
+  .media__img--large {
+    width: 300px;
+    height: 200px;
+  }
 }
+
 </style>
 <script>
 export default {
   data () {
     return {
-      welcome: 'hello, Home Page!'
+
     }
   },
   components:{

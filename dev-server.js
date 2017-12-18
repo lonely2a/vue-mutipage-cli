@@ -4,7 +4,6 @@ var webpack = require('webpack')
 var webpackConfig = require('./webpack.dev.config')
 var path = require('path')
 var app = express();
-
 // webpack编译器
 var compiler = webpack(webpackConfig);
 
@@ -17,7 +16,7 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
     }
 });
 app.use(devMiddleware)
-
+app.use(require("webpack-hot-middleware")(compiler));
 // 路由
 app.get('/:viewname?', function(req, res, next) {
 

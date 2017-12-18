@@ -4,9 +4,6 @@
   </div>
 </template>
 <style lang="less" rel='stylesheet/less'>
-.content{
-color: red;
-}
 </style>
 <script>
 export default {
